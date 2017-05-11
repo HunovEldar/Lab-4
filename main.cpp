@@ -40,11 +40,12 @@ void print_in_hex(const void* data, size_t size)
     for( i=0;i<size; i++)
     {
         print_byte(p[i]);
+        cout<<" ";
     }
 }
 struct student {
     char name[17];
-    unsigned int year: 16;
+    uint16_t year;
     float ball;
     int sex: 1;
     int courses;
@@ -81,12 +82,8 @@ int main()
     s[2].batya = &s[1];
 
     for (size_t i=0;i<3;i++) {
-        cout <<'\n'<< s[i].name  << "\n";
-        cout << s[i].year << "\n";
-        cout << s[i].ball << "\n";
-        cout << s[i].sex << "\n";
-        cout << s[i].courses << "\n";
-        cout << s[i].batya << "\n";
+        print_in_hex(&s[i],sizeof (s[i]));
+        cout<<"\n";
     }
     return 0;
 }
