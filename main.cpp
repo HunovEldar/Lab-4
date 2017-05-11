@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 char print_in_hex(uint8_t symbol)
 {
@@ -41,12 +42,51 @@ void print_in_hex(const void* data, size_t size)
         print_byte(p[i]);
     }
 }
+struct student {
+    char name[17];
+    unsigned int year: 16;
+    float ball;
+    int sex: 1;
+    int courses;
+    student* batya;
 
+
+};
 int main()
 {
     /*uint16_t u16;
     print_byte(u16);*/
     print_byte(255);
+    student s[3];
 
+    strcpy(s[0].name, "Ruslan");
+    s[0].year = 2016;
+    s[0].ball = 3.5;
+    s[0].sex = 1;
+    s[0].courses = 1;
+    s[0].batya = &s[1];
+
+    strcpy(s[1].name, "Andrey");
+    s[1].year = 2016;
+    s[1].ball = 4.5;
+    s[1].sex = 1;
+    s[1].courses = 1;
+    s[1].batya = nullptr;
+
+    strcpy(s[2].name, "Sergei");
+    s[2].year = 2016;
+    s[2].ball = 4.1;
+    s[2].sex = 1;
+    s[2].courses = 1;
+    s[2].batya = &s[1];
+
+    for (size_t i=0;i<3;i++) {
+        cout <<'\n'<< s[i].name  << "\n";
+        cout << s[i].year << "\n";
+        cout << s[i].ball << "\n";
+        cout << s[i].sex << "\n";
+        cout << s[i].courses << "\n";
+        cout << s[i].batya << "\n";
+    }
     return 0;
 }
