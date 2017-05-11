@@ -32,6 +32,10 @@ void print_byte(uint8_t byte)
     uint8_t high =(byte & 0b11110000)>>4;
     cout<<print_in_hex(high)<<print_in_hex(low);
 }
+void print_in_hex(const void* data, size_t size);
+{
+
+}
 
 int main()
 {
